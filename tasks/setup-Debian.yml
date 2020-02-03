@@ -6,11 +6,10 @@
     path: /usr/share/man/man1
     state: directory
     recurse: true
-  when:
-    - ansible_distribution == 'Ubuntu'
-    - ansible_distribution_version == '18.04'
+
 
 - name: Ensure Java is installed.
   apt:
     name: "{{ java_packages }}"
+    install_recommends: no
     state: present
